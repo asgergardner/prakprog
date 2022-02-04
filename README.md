@@ -1,2 +1,3 @@
 # prakprog
-Praktical programming &amp; numerical methods
+**Repository for Aarhus University course Practical programming &amp; numerical methods.**
+Excercises, homeworks etc
