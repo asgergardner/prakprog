@@ -1,4 +1,8 @@
+using System;
+
 public class vec{
+	
+	// Part A
 	public double x;
 	public double y;
 	public double z;
@@ -32,6 +36,21 @@ public class vec{
 		return new vec(v.x - u.x, v.y - u.y, v.z - u.z);
 	}
 
+	public static vec operator -(vec u){
+		return new vec(-u.x, -u.y, -u.z);
+	}
+
+	public void print(string s){
+		Console.Write(s);
+		Console.WriteLine($"({x}, {y}, {z})");
+	}
+
+	public void print(){
+		this.print("");
+	}
+	
+	// Part B
+
 	public static vec dot(vec v, vec u){
 		return new vec(v.x * u.x, v.y * u.y, v.z * u.z);
 	}
@@ -41,6 +60,20 @@ public class vec{
 	}
 	
 	public static double norm(vec v){
-		return 
+		return Math.Sqrt((v.x * v.x) + (v.y * v.y) + (v.z * v.z));
+	}
+
+	public override string ToString(){
+		return $"({this.x}, {this.y}, {this.z})";
+	}
+
+	// Part C
+	
+	public bool approx(vec other){
+		return ((Double.Epsilon >= (this.x - other.x)) && ((this.x - other.x) >= 0)) && ((Double.Epsilon >= (this.y - other.y)) && ((this.y - other.y) >= 0)) && ((Double.Epsilon >= (this.z - other.z)) && ((this.z - other.z)>= 0));   
+	}
+
+	public static bool approx(vec u, vec v){
+		return u.approx(v);
 	}
 }
