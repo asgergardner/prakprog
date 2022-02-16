@@ -21,7 +21,7 @@ static class fileio{
 		return 0;
 	}
 	catch(System.FormatException){
-		System.Console.WriteLine("FormatException: try different input format");
+		System.Console.WriteLine("FormatException: try different input file format");
 		return 0;
 	}
 	}
