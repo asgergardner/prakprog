@@ -11,4 +11,4 @@ vec.dll: vec.cs
 	mcs -target:library -out:vec.dll vec.cs
 
 clean:
-	rm main.exe vec.dll 
+	rm main.exe vec.dll out.txt 

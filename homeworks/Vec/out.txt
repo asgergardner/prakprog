@@ -12,6 +12,6 @@ Cross product of (1, 2, 3) and (3, 2, 1): (-4, 8, -4)
 Cross product is orthogonal to initial vectors: True, True
 Norm of v: 3.74165738677394
 Norm of zero vector is 0: True
+(1,2,3) is approximately (3,2,1): False
 (1, 2, 3) is approximately equal to (1, 2, 3) * (1+eps): False
 (1, 2, 3) is approximately equal to (1, 2, 3) * (1+eps/10): True
-(1,2,3) is approximately (3,2,1): False

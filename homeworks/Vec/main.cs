@@ -48,11 +48,11 @@ public static class main{
 		WriteLine($"Norm of v: {normV.ToString()}");
 		WriteLine($"Norm of zero vector is 0: {vec.norm(zero) == 0}");
 		
+		WriteLine($"(1,2,3) is approximately (3,2,1): {v.approx(u)}");	
 		vec vModEps = v*(1+1e-9);
 		WriteLine($"{v.ToString()} is approximately equal to {v.ToString()} * (1+eps): {vModEps.approx(v)}");
 		vec vModEps10 = v*(1+1e-10);
 		WriteLine($"{v.ToString()} is approximately equal to {v.ToString()} * (1+eps/10): {vModEps10.approx(v)}");		
-		WriteLine($"(1,2,3) is approximately (3,2,1): {v.approx(u)}");
 		
 		return 0;
 	}
