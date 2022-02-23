@@ -13,10 +13,20 @@ class main{
 			for(int i=0;i<n;i++) numbers[i] = double.Parse(words[i]);
 			list.push(numbers);
        			}
-		for(int i=0;i<list.size;i++){
-			var numbers = list.data[i];
-			foreach(var number in numbers)Write($"{number:e} ");
-			WriteLine();
-        		}
-		}
+
+		printlist(list);
+		WriteLine(list);
+		list.remove(1);
+		printlist(list);
+	}
+
+	public static void printlist(genlist<double[]> list){
+                        for(int i=0;i<list.size;i++){
+                                var numbers = list.data[i];
+                                foreach(var number in numbers)Write($"{number:e} ");
+                                        WriteLine();
+                        }
+    	}		
+
 }
+		

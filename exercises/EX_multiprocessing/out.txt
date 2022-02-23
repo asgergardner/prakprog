@@ -1,0 +1,6 @@
+N=1E+08
+harm: summing from 50000000 to 100000001
+harm: summing from 1 to 50000000
+harm: summing from 1 to 50000000 equals 18.3047492182933
+harm: summing from 50000000 to 100000001 equals 0.693147195559714
+Harmonic sum from 1 to 100000000 = 18.997896413853

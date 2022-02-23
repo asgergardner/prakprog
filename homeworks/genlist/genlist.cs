@@ -3,6 +3,7 @@ public class genlist<T>{
 	public int size=0;
 	public int capacity=8;	
 	public genlist() {data = new T[capacity];}
+	
 	public void push(T item){ 
 		if(size==capacity){
 			T[] newdata = new T[capacity*=2];
@@ -10,14 +11,13 @@ public class genlist<T>{
 			data=newdata;
 		}
 		data[size]=item;
-		size++;
-		}
+		size++;	
+	}
+
 	public void remove(int i){
-		for(int j=0;j<=size;j++){
-			if(j==i){
-				continue;	
-			}
-		
+		for(int j=i;j<size;j++){
+			data[j] = data[j+1];
 		}
 	}
+
 }
