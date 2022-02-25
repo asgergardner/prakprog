@@ -15,7 +15,8 @@ public class genlist<T>{
 	}
 
 	public void remove(int i){
-		for(int j=i;j<size;j++){
+		if(i<0 || i>=size){System.Console.Error.WriteLine($"remove: wrong i={i}");return;}
+		for(int j=i;j<size-1;j++){
 			data[j] = data[j+1];
 		}
 	}

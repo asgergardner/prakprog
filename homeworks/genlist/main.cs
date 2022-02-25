@@ -14,10 +14,15 @@ class main{
 			list.push(numbers);
        			}
 
-		printlist(list);
-		WriteLine(list);
+		var intlist = new genlist<double[]>();
+		double[] ints = new double[] {1,2,3,4,5};
+		intlist.push(ints);
+
+		WriteLine($"Integer list before removal:");
+		printlist(intlist);
 		list.remove(1);
-		printlist(list);
+		WriteLine($"Integer list after removal:");
+	       	printlist(intlist);
 	}
 
 	public static void printlist(genlist<double[]> list){

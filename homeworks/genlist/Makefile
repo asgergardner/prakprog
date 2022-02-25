@@ -12,4 +12,4 @@ genlist.dll:genlist.cs
 
 .PHONY:
 clean: 
-	rm out.txt *.exe *.dll
+	rm out.txt *.exe 

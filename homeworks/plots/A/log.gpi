@@ -1,0 +1,9 @@
+set terminal png 
+set output 'erf.pyxplot.png' 
+set xlabel 'x' 
+set ylabel 'y' 
+set title 'Error Function' 
+set key left top 
+plot 'erf.data.txt' index 0 using 1:2 with lines title 'calculated',\ 
+'erf.tab.txt' with points pointtype 3 pointsize 0.5 title 'tabulated' 
+
