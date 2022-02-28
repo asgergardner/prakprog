@@ -19,19 +19,10 @@ class main{
 		intlist.push(ints);
 
 		WriteLine($"Integer list before removal:");
-		printlist(intlist);
-		list.remove(1);
+		intlist.print();
+		intlist.remove(2);
 		WriteLine($"Integer list after removal:");
-	       	printlist(intlist);
+	       	intlist.print();
 	}
-
-	public static void printlist(genlist<double[]> list){
-                        for(int i=0;i<list.size;i++){
-                                var numbers = list.data[i];
-                                foreach(var number in numbers)Write($"{number:e} ");
-                                        WriteLine();
-                        }
-    	}		
-
 }
 		

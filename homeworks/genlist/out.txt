@@ -1,4 +1,3 @@
 Integer list before removal:
-1.000000e+000 2.000000e+000 3.000000e+000 4.000000e+000 5.000000e+000 
-Integer list after removal:
-1.000000e+000 2.000000e+000 3.000000e+000 4.000000e+000 5.000000e+000 
+System.Double[]Integer list after removal:
+System.Double[]
