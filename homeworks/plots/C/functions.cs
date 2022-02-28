@@ -9,9 +9,10 @@ public static class functions{
 		return 1-sum*Exp(-x*x);
 	}
 
-	public static complex gamma(complex x){
-		if(x<0)return PI/Sin(PI*x)/gamma(1-x, false);
-		if(x<9)return gamma(x+1, false)/x;
-		return Exp(lngamma);
+	public static complex cgamma(complex x){
+		if(cmath.abs(x)<0)return PI/cmath.sin(PI*x)/cgamma(1-x);
+		if(cmath.abs(x)<9)return cgamma(x+1)/x;
+		complex lngamma=x*cmath.log(x+1/(12*x-1/x/10))-x+cmath.log(2*PI/x)/2;
+		return cmath.exp(lngamma);
 	}
 }

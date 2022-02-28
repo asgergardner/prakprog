@@ -3,10 +3,16 @@ using static System.Console;
 
 class main{
 	public static void Main(){
-		for(double x=-5;x<=5;x+=1.0/8){
-			double gamma = functions.gamma(x, false);
-			double lngamma = functions.gamma(x, true);
-			WriteLine($"{x}	{gamma} {lngamma}");
-		}	
+		int start = -5;
+		int end = 5;
+		double divisions = 10;
+		for(double i=start;i<=end;i+=1.0/divisions){
+			for(double j=start;j<=end;j+=1.0/divisions){
+				complex x = new complex(i,j);
+				complex gamma = functions.cgamma(x);
+				double absgamma = cmath.abs(gamma);
+				WriteLine($"{x.Re} {x.Im} {absgamma}");
+			}
+		}
 	}
 }

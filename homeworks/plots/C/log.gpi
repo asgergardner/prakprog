@@ -1,0 +1,10 @@
+        set terminal png 
+        set output 'cgamma.pyxplot.png' 
+set xlabel 'Im(x)' 
+        set ylabel 'Re(x)' 
+        set title 'Complex Gamma Function' 
+        set key below 
+set grid 
+set size 8 square 
+plot 3d [-5:5][-5:5][0:25] 'cgamma.data.txt' index 0 using 2:1:3 with surface col black fillcol red title 'abs(x)' 
+        
