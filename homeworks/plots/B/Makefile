@@ -9,8 +9,7 @@ lngamma.pyxplot.png: gamma.data.txt Makefile
         set ylabel 'y' \n\
         set title 'ln(Gamma) Function' \n\
         set key left top \n\
-        plot [0:5][-20:20] '$<' index 0 using 1:3 with lines title 'calculated',\ \n\
-        'gamma.tab.txt' with points pointtype 3 pointsize 0.5 title 'tabulated' \n\
+        plot [0:5][-2:5] '$<' index 0 using 1:3 with lines with title "ln(Gamma)"\n\
         " | tee log.gpi | pyxplot
 
 gamma.pyxplot.png: gamma.data.txt Makefile
@@ -20,7 +19,7 @@ gamma.pyxplot.png: gamma.data.txt Makefile
 	set xlabel 'x' \n\
 	set ylabel 'y' \n\
 	set title 'Gamma Function' \n\
-	set key left top \n\
+	set key right bottom \n\
 	plot [-5:5][-20:20] '$<' index 0 using 1:2 with lines title 'calculated',\ \n\
 	'gamma.tab.txt' with points pointtype 3 pointsize 0.5 title 'tabulated' \n\
 	" | tee log.gpi | pyxplot 

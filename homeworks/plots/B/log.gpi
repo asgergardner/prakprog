@@ -1,9 +1,9 @@
-        set terminal png 
-        set output 'lngamma.pyxplot.png' 
-        set xlabel 'x' 
-        set ylabel 'y' 
-        set title 'ln(Gamma) Function' 
-        set key left top 
-        plot [0:5][-20:20] 'gamma.data.txt' index 0 using 1:3 with lines title 'calculated',\ 
-        'gamma.tab.txt' with points pointtype 3 pointsize 0.5 title 'tabulated' 
-        
+set terminal png 
+set output 'gamma.pyxplot.png' 
+set xlabel 'x' 
+set ylabel 'y' 
+set title 'Gamma Function' 
+set key right bottom 
+plot [-5:5][-20:20] 'gamma.data.txt' index 0 using 1:2 with lines title 'calculated',\ 
+'gamma.tab.txt' with points pointtype 3 pointsize 0.5 title 'tabulated' 
+
