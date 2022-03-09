@@ -5,11 +5,14 @@ class main{
 	public static void Main(){
 		
 		int N = 20;
-		double[] xtable = new double[N];
-                double[] ytable = new double[N];
-		for(int i=0; i<N; i++){
-			xtable[i] = i;
-			ytable[i] = Cos(i);	
+		int div = 8;
+		double[] xtable = new double[N*div];
+                double[] ytable = new double[N*div];
+		int ix_count = 0;
+		for(double i=0; i<N; i=1.0/div){
+			xtable[ix_count] = i;
+			ytable[ix_count] = Cos(i);
+			ix_count++;	
 		} 
 
 		interpolator.linspline lspline = new interpolator.linspline(xtable, ytable);
