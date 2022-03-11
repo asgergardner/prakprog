@@ -46,25 +46,36 @@ public static class interpolator{
 			// recursively determining constants
 			double[] p = new double[N-1];
 			double[] h = new double[N-1];
-			
+				
 			for(int i=0; i<N-1; i++){
 				h[i] = x[i+1] -x[i];
 				p[i] = (y[i+1] -y[i])/h[i];
 			}
-			c[0] = 0;
 			
+			// recursion up
+			double[] c_up = new double[N-1];
+			c_up[0] = 0;
 			for(int i=0; i<N-2; i++){
-				c[i+1] = (p[i+1]-p[i] - c[i]*h[i])/h[i+1];
+				c_up[i+1] = (p[i+1]-p[i] - c_up[i]*h[i])/h[i+1];
 			}
-			c[N-2] /= 2;
 			
+			// recursion down
+			double[] c_down = new double[N-1];
+			c_down[N-2] = 0;
 			for(int i=N-3; i>=0; i--){
-				c[i] = (p[i+1]-p[i] - c[i+1]*h[i+1])/h[i];
+				c_down[i] = (p[i+1]-p[i] - c_down[i+1]*h[i+1])/h[i];
 			}
 			
+			// averaging
+			for(int i=0; i<N-1; i++){
+				c[i] = (c_up[i] + c_down[i])/2;
+			}
+
+					
 			for(int i=0; i<N-1; i++){
 				b[i] = p[i] - c[i]*h[i];
 			}
+			
 		}
 
 		public double eval(double z){
@@ -74,11 +85,21 @@ public static class interpolator{
 		}
 
 		public double deriv(double z){
-			return 0;	
+			int ix = binsearch(x, z);
+			double h = z-x[ix];
+			return b[ix] + 2*c[ix]*h;	
 		}
 
 		public double integ(double z){
-			return 0;
+			int ix = binsearch(x, z);
+			double dx,cumsum = 0;
+			for(int i=0; i<ix; i++){
+				dx = x[i+1] -x[i];
+				cumsum += y[i]*dx + 1.0/2*b[i]*Pow(dx,2) + 1.0/3*c[i]*Pow(dx,3);
+			}
+			dx = z - x[ix];
+			cumsum += y[ix]*dx + 1.0/2*b[ix]*Pow(dx,2) + 1.0/3*c[ix]*Pow(dx,3);
+			return cumsum;
 		}
 	
 	}

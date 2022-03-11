@@ -4,8 +4,8 @@ using static System.Math;
 class main{
 	public static void Main(){
 		
-		int N = 20;
-		int div = 5;
+		int N = 7;
+		int div = 3;
 		double step = 1.0/div;
 		double[] xtable = new double[N*div];
                 double[] ytable = new double[N*div];
@@ -19,9 +19,20 @@ class main{
 		interpolator.linspline lspline = new interpolator.linspline(xtable, ytable);
 		
 		for(int i=0;i<xtable.Length;i++){
-			double interp = lspline.eval(xtable[i]);
-			double int_interp = lspline.integ(xtable[i]);
-			WriteLine($"{xtable[i]} {ytable[i]} {interp} {int_interp}");
+			WriteLine($"{xtable[i]} {ytable[i]}");
+		}
+
+		WriteLine("\n");
+		
+		int N_plot = N;
+		int div_plot = 20;	
+		double step_plot = 1.0/div_plot;
+		int idx = 0; 
+		for(double x=0; x<N_plot-step_plot; x+=step_plot){
+			double interp = lspline.eval(x);
+                        double int_interp = lspline.integ(x);
+			WriteLine($"{x} {interp} {int_interp}");
+			idx++;
 		}
 	}
 }

@@ -18,14 +18,18 @@ public static class interpolator{
 			return y[ix] + dy/dx * (z-x[ix]);
        		}
 
-		public double integ(double z){
-			double cumsum = 0; 
+		public double integ(double z){	
+			double cumsum = 0;
+		       	double dx, dy;	
 			int ix = binsearch(x, z);
-			for(int i=0; i<=ix; i++){
-				double dy = y[i+1] - y[i];
-				double dx = x[i+1] - x[i];
-				cumsum += y[i] * (x[i+1]-x[i]) + dy/dx * Pow(x[i+1]-x[i],2)/2; 		
-			}
+			for(int i=0; i<ix; i++){
+				dy = y[i+1] - y[i];
+				dx = x[i+1] - x[i];
+				cumsum += y[i]*dx + dy/dx * 0.5*Pow(dx,2); 		
+			} 
+			dy = y[ix+1] -y[ix];
+			dx = z -x[ix];
+			cumsum += y[ix]*dx + dy/dx * 0.5*Pow(dx,2);
 			return cumsum;
 		}
 	}

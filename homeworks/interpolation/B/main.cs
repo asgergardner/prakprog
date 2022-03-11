@@ -2,12 +2,13 @@ using static System.Console;
 using static System.Math;
 using static interpolator;
 using System.Collections.Generic;
+using System.Linq;
 
 class main{
 	public static void Main(){
 		
 		
-		int N = 5;
+		int N = 20;
 		int div = 8;
 		double step = 1.0/div;
 		double[] cos_xtable = new double[N*div];
@@ -32,16 +33,16 @@ class main{
 		
 
 		// Checking qspline for datasets given in homework
-		double[] xtable = new double[] {1,2,3,4,5};
-	       	double[] ytable1 = new double[] {1,1,1,1,1};
-		double[] ytable2 = new double[] {1,2,3,4,5};
-		double[] ytable3 = new double[] {1,4,9,16,25};	
-		
-		var ys = new List<double[]> {ytable1, ytable2, ytable3};
+		double[] xtable = new double[] {-5,-4,-3,-2,-1,0,1,2,3,4,5};
+	       	double[] ytable1 = new double[] {1,1,1,1,1,1,1,1,1,1,1};
+		double[] ytable2 = new double[] {-5,-4,-3,-2,-1,0,1,2,3,4,5};
+		double[] ytable3 = new double[] {25,16,9,4,1,0,1,4,9,16,25};	
+		double[] ytable4 = new double[] {0,0,0,0,0,0,1,1,1,1,1};
+
+		var ys = new List<double[]> {ytable1, ytable2, ytable3, ytable4};
 		
 		foreach(var y in ys){
 			qspline qdspline = new qspline(xtable, y);
-		//	for(int i=0; i<qdspline.b.Length; i++){WriteLine($"b:{qdspline.b[i]} c:{qdspline.c[i]}");} WriteLine("\n");
 			
 			for(int i=0; i<y.Length; i++){
 				WriteLine($"{xtable[i]} {y[i]}");
@@ -49,27 +50,16 @@ class main{
 			
 			WriteLine("\n");
 
-			for(double x=0; x<=y.Length; x+=step){
+			for(double x=xtable.Min(); x<xtable.Max(); x+=step){
 				double interp = qdspline.eval(x);
-				WriteLine($"{x} {interp}");
+				double deriv = qdspline.deriv(x);
+				double integ = qdspline.integ(x);
+				WriteLine($"{x} {interp} {deriv} {integ}");
 			}
 
 			WriteLine("\n");
 		}
 		
-
-		// Checking qspline for cosine
-		qspline quadspline = new qspline(cos_xtable, cos_ytable);
-		for(int i=0; i<cos_ytable.Length-1; i++){
-		       	WriteLine($"{cos_xtable[i]} {cos_ytable[i]}");
-		}	
-
-		WriteLine($"\n");
-
-		for(double x=0; x<cos_xtable.Length/div; x+=step){
-			double interp = quadspline.eval(x);
-			WriteLine($"{x} {interp}");
-		}
 		
 	}
 }
