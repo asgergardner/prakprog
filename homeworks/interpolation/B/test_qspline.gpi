@@ -2,11 +2,11 @@ set terminal png
 set output "test_qspline.png"
 set multiplot
 set key top left
-set width 9
+set width 12
 set grid
 
 set title "$y = 1$"
-set origin -5,4
+set origin -8,5
 plot \
 	"out.txt" index 0 using 1:2 with points title "tabulated",\
 	"out.txt" index 1 using 1:2 with lines title "interpolated",\
@@ -14,7 +14,7 @@ plot \
 	"out.txt" index 1 using 1:4 with lines title "integrated" 
 
 set title "$y = x$"
-set origin 5,4
+set origin 8,5
 plot \
 	"out.txt" index 2 using 1:2 with points title "tabulated",\
 	"out.txt" index 3 using 1:2 with lines title "interpolated",\
@@ -22,7 +22,7 @@ plot \
         "out.txt" index 3 using 1:4 with lines title "integrated"
 
 set title "$y = x^2$"
-set origin -5,-4
+set origin -8,-5
 plot \
 	"out.txt" index 4 using 1:2 with points title "tabulated",\
 	"out.txt" index 5 using 1:2 with lines title "interpolated",\
@@ -30,7 +30,7 @@ plot \
         "out.txt" index 5 using 1:4 with lines title "integrated"
 
 set title "Discontinuity"
-set origin 5,-4
+set origin 8,-5
 plot \
         "out.txt" index 6 using 1:2 with points title "tabulated",\
         "out.txt" index 7 using 1:2 with lines title "interpolated",\

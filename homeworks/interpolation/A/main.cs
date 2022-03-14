@@ -4,7 +4,7 @@ using static System.Math;
 class main{
 	public static void Main(){
 		
-		int N = 7;
+		int N = 5;
 		int div = 3;
 		double step = 1.0/div;
 		double[] xtable = new double[N*div];
@@ -25,13 +25,13 @@ class main{
 		WriteLine("\n");
 		
 		int N_plot = N;
-		int div_plot = 20;	
+		int div_plot = 64;	
 		double step_plot = 1.0/div_plot;
 		int idx = 0; 
-		for(double x=0; x<N_plot-step_plot; x+=step_plot){
+		for(double x=0; x<N_plot; x+=step_plot){
 			double interp = lspline.eval(x);
-                        double int_interp = lspline.integ(x);
-			WriteLine($"{x} {interp} {int_interp}");
+                        double integ = lspline.integ(x);
+			WriteLine($"{x} {interp} {integ}");
 			idx++;
 		}
 	}

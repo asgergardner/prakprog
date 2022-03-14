@@ -1,0 +1,36 @@
+set terminal png
+set output "test_cspline.png"
+set multiplot
+set key top left
+set width 12
+set grid
+
+set title "Peak"
+set origin -8,5
+plot \
+	"out.txt" index 0 using 1:2 with points title "tabulated",\
+	"out.txt" index 1 using 1:2 with lines title "interpolated",\
+	"out.txt" index 1 using 1:3 with lines title "derivative",\
+	"out.txt" index 1 using 1:4 with lines title "integrated" 
+
+set title "Discontinuity"
+set origin -8,-5
+plot \
+	"out.txt" index 2 using 1:2 with points title "tabulated",\
+	"out.txt" index 3 using 1:2 with lines title "interpolated",\
+	"out.txt" index 3 using 1:3 with lines title "derivative",\
+        "out.txt" index 3 using 1:4 with lines title "integrated"
+
+set title "Plotutils peak"
+set origin 8,5
+interpolate spline plotutils_peak() "out.txt" index 0 using 1:2
+plot \
+	"out.txt" index 0 using 1:2 with points title "tabulated",\
+	plotutils_peak(x) notitle 
+
+set title "Plotutils discontinuity"
+set origin 8,-5
+interpolate spline plotutils_disc() "out.txt" index 2 using 1:2
+plot \
+	"out.txt" index 2 using 1:2 with points title "tabulated",\
+	plotutils_disc(x) notitle

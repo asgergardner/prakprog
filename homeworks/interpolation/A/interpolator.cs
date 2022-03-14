@@ -20,16 +20,17 @@ public static class interpolator{
 
 		public double integ(double z){	
 			double cumsum = 0;
-		       	double dx, dy;	
+		       	double dx = 0;
+			double dy = 0;	
 			int ix = binsearch(x, z);
 			for(int i=0; i<ix; i++){
 				dy = y[i+1] - y[i];
 				dx = x[i+1] - x[i];
-				cumsum += y[i]*dx + dy/dx * 0.5*Pow(dx,2); 		
+				cumsum += y[i]*dx + dy/dx * 0.5*dx*dx; 		
 			} 
-			dy = y[ix+1] -y[ix];
-			dx = z -x[ix];
-			cumsum += y[ix]*dx + dy/dx * 0.5*Pow(dx,2);
+			dy = y[ix+1] - y[ix];
+			dx = x[ix+1] - x[ix];
+			cumsum += y[ix]*(z-x[ix]) + dy/dx * 0.5*(z-x[ix])*(z-x[ix]);
 			return cumsum;
 		}
 	}
