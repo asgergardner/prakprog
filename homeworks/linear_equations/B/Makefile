@@ -2,7 +2,7 @@ all:out.txt
 	cat out.txt
 
 out.txt:main.exe
-	mono main.exe
+	mono $< > $@
 
 main.exe:main.cs matrix.dll vector.dll lineq.dll 
 	mcs -target:exe -reference:matrix.dll -reference:lineq.dll -reference:vector.dll $<

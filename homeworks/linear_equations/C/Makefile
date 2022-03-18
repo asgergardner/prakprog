@@ -1,5 +1,7 @@
-all:out.txt
-	cat out.txt
+all:plot_runtime.png
+
+plot_runtime.png:out.txt plot_runtime.gpi
+	pyxplot plot_runtime.gpi
 
 out.txt:main.exe
 	mono $< > $@

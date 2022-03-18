@@ -1,0 +1,61 @@
+TESTING DECOMPOSITION
+Randomly generated 6 by 4 matrix:
+
+         6          2         10         10 
+         4          8          9          4 
+         9          3         10          9 
+         3          6          1          5 
+         1          4          8          8 
+         1          5          8          0 
+**orthogonalizing**
+QRGS decomposed matrices:
+Q:
+
+       0.5     -0.223      0.332      0.281 
+     0.333      0.565    -0.0402     -0.288 
+      0.75     -0.334    -0.0741     -0.197 
+      0.25      0.424     -0.689      0.354 
+    0.0833      0.355       0.49      0.661 
+    0.0833      0.462       0.41     -0.487 
+R:
+
+        12       8.17       17.1         15 
+         0       9.34       6.47       1.98 
+         0          0       8.73       2.97 
+         0          0          0       6.95 
+         0          0          0          0 
+         0          0          0          0 
+Q^T*Q is (approx) the identity: True 
+
+QR is (approx) equal to A: True 
+
+TESTING SOLVER
+Randomly generated 5 by 5 matrix:
+
+         8          1          9         10          3 
+         6          4          2          1          2 
+         9          4          2         10          1 
+         8          9          6          3          1 
+         1          7          4          2          8 
+Randomly generated vector of dimension 5:
+         0          1          0          7          1 
+**solving**
+Ax is (approx) equal to b: True 
+
+TESTING INVERSE
+Randomly generated 5 by 5 matrix A:
+
+         5          7          8          4          4 
+         5          7          9          0          0 
+         7          5          5          0          7 
+         6          2         10          0          6 
+         1          2          6          4         10 
+Inverse of A:
+
+     0.226     -0.251      0.067      0.147     -0.226 
+    -0.106      0.213     0.0957     -0.218      0.106 
+   -0.0426     0.0851     -0.112     0.0878     0.0426 
+     0.359     -0.267     -0.115     0.0762     -0.109 
+    -0.119     0.0383     0.0872    -0.0543      0.119 
+AB is (approx) the identity: True 
+

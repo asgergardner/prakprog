@@ -1,0 +1,7 @@
+set terminal png
+set output "plot_runtime.png"
+f(x) = a*x*x*x+b
+fit f() "out.txt" index 0 using 1:2 via a,b 
+plot\
+	"out.txt" index 0 using 1:2 with points title "matrix decomposition",\
+	f(x) with lines title "$f(n) = n^3$"
