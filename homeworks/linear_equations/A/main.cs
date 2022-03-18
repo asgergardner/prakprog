@@ -86,7 +86,7 @@ class main{
                 A.print();
 
                 WriteLine("**orthogonalizing**");
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 lineq.QRGSdecomp(A, R);
                 matrix Q = A.copy();
 
@@ -116,7 +116,7 @@ class main{
                 int m=n;
                 int N=11;
                 matrix A = new matrix(n,m);
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 vector b = new vector(n);
                 for(int i=0; i<n; i++){
                         b[i] = rand.Next(N);

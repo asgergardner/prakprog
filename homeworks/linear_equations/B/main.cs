@@ -4,10 +4,9 @@ using static System.Random;
 
 class main{
 	public static void Main(){
-		TestDecomp();
-		TestSolver();
 		TestInverse();	
 	}
+
 	public static void TestDecomp(){
 		WriteLine("TESTING DECOMPOSITION");
 		int n = 6;
@@ -26,7 +25,7 @@ class main{
                 A.print();
 
                 WriteLine("**orthogonalizing**");
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 lineq.QRGSdecomp(A, R);
                 matrix Q = A.copy();
 
@@ -50,7 +49,7 @@ class main{
                 int m=n;
                 int N=11;
                 matrix A = new matrix(n,m);
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 vector b = new vector(n);
                 for(int i=0; i<n; i++){
                         b[i] = rand.Next(N);
@@ -80,7 +79,7 @@ class main{
                 int m=n;
                 int N=11;
                 matrix A = new matrix(n,m);
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 for(int i=0; i<n; i++){
                         for(int j=0; j<m; j++){
                         A[i,j] = rand.Next(N);

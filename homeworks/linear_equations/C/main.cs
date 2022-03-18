@@ -6,11 +6,6 @@ using static System.DateTime;
 
 class main{
 	public static void Main(){
-		/*
-		TestDecomp();
-		TestSolver();
-		TestInverse();
-		*/
 		TestTime();	
 	}
 
@@ -32,7 +27,7 @@ class main{
                 A.print();
 
                 WriteLine("**orthogonalizing**");
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 lineq.QRGSdecomp(A, R);
                 matrix Q = A.copy();
 
@@ -57,7 +52,7 @@ class main{
                 int m=n;
                 int N=11;
                 matrix A = new matrix(n,m);
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 vector b = new vector(n);
                 for(int i=0; i<n; i++){
                         b[i] = rand.Next(N);
@@ -88,7 +83,7 @@ class main{
                 int m=n;
                 int N=11;
                 matrix A = new matrix(n,m);
-                matrix R = new matrix(n,m);
+                matrix R = new matrix(m,m);
                 for(int i=0; i<n; i++){
                         for(int j=0; j<m; j++){
                         A[i,j] = rand.Next(N);
@@ -133,15 +128,15 @@ class main{
 			rlist.Add(r);
 		}
 
-		for(int i=0; i<endSize/stepSize-stepSize; i++){
+		for(int i=0; i<(endSize-stepSize)/stepSize; i++){
 			matrix A = mlist[i];
 			matrix R = rlist[i];
 			
 			double tBefore = DateTime.Now.Ticks;
 			lineq.QRGSdecomp(A ,R);
 			double tAfter = DateTime.Now.Ticks;
-			double time = tAfter-tBefore;
-			if(time>0){WriteLine($"{(i+stepSize)} {time}");}
+			double time = (tAfter-tBefore)*1e-4;
+			if(time>0){WriteLine($"{(i*stepSize)} {time}");}
 		}
 	}
 }

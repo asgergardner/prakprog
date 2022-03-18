@@ -1,7 +1,12 @@
 set terminal png
 set output "plot_runtime.png"
+set xlabel "n"
+set ylabel "t [ms]"
+set grid
+set key top left
 f(x) = a*x*x*x+b
-fit f() "out.txt" index 0 using 1:2 via a,b 
+g(x) = c*x*x*x*x+d
+fit f() withouterrors "out.txt" index 0 using 1:2 via a,b  
 plot\
-	"out.txt" index 0 using 1:2 with points title "matrix decomposition",\
+	"out.txt" index 0 using 1:2 with points title "QR decomposition",\
 	f(x) with lines title "$f(n) = n^3$"
