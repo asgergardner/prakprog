@@ -13,8 +13,7 @@ class main{
 			WriteLine($"{time[i]} {activity[i]} {dy[i]}");
 		}
 		WriteLine("\n");
-	
-		//Adjusting data for linear fitting	
+		
 		for(int i=0; i<activity.Length; i++){
 			dy[i] = dy[i]/activity[i];
 			activity[i] = Math.Log(activity[i]);
@@ -24,27 +23,28 @@ class main{
 		var fs = new Func<double,double>[] {z => 1.0, z => z};
                 
 		//Fitting
-		var c = leastsq.lsfit(fs, time, activity, dy);
+		var (c,S) = leastsq.lsfit(fs, time, activity, dy);
  
 		double res=0;
+		double res_plus=0;
+		double res_minus=0;
 		for(double t=0; t<=time.Max(); t+=1.0/8){
+			res_minus = 0;
+			res_plus = 0;
 			res = 0;
 			for(int j=0; j<fs.Length; j++){
+				double dc = Sqrt(S[j,j]);
+				res_minus += (c[j]-dc)*fs[j](t);
 				res += c[j]*fs[j](t);
+				res_plus += (c[j]+dc)*fs[j](t);
 				
 			}
 			//Exponentiating since fit is made in linear form
 			res = Exp(res);
-			WriteLine($"{t} {res}");
+			res_minus = Exp(res_minus);
+			res_plus = Exp(res_plus);
+			WriteLine($"{t} {res} {res_minus} {res_plus}");
 		}	
 		WriteLine("\n");
-
-		using(var outfile = new System.IO.StreamWriter("fitlog.txt")){
-			outfile.WriteLine("\n");
-			outfile.WriteLine($"Fit parameters: a = {c[0]}, lambda = {c[1]}");
-			outfile.WriteLine($"Half-life estimated as {Log(2)/(-c[1])} days");
-			outfile.WriteLine("Modern table value is 3.63 days");
-		}
-		
 	}
 }

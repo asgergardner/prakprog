@@ -13,8 +13,7 @@ class main{
 			WriteLine($"{time[i]} {activity[i]} {dy[i]}");
 		}
 		WriteLine("\n");
-	
-		//Adjusting data for linear fitting	
+		
 		for(int i=0; i<activity.Length; i++){
 			dy[i] = dy[i]/activity[i];
 			activity[i] = Math.Log(activity[i]);
@@ -24,7 +23,7 @@ class main{
 		var fs = new Func<double,double>[] {z => 1.0, z => z};
                 
 		//Fitting
-		var c = leastsq.lsfit(fs, time, activity, dy);
+		var (c,S) = leastsq.lsfit(fs, time, activity, dy);
  
 		double res=0;
 		for(double t=0; t<=time.Max(); t+=1.0/8){
@@ -39,12 +38,11 @@ class main{
 		}	
 		WriteLine("\n");
 
+		S.print();
+
 		using(var outfile = new System.IO.StreamWriter("fitlog.txt")){
 			outfile.WriteLine("\n");
-			outfile.WriteLine($"Fit parameters: a = {c[0]}, lambda = {c[1]}");
-			outfile.WriteLine($"Half-life estimated as {Log(2)/(-c[1])} days");
-			outfile.WriteLine("Modern table value is 3.63 days");
+			outfile.WriteLine($"Uncertainty on lambda: {Sqrt(S[1,1])} days");
 		}
-		
 	}
 }

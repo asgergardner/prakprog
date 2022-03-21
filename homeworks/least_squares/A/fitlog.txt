@@ -1,0 +1,5 @@
+
+
+Fit parameters: a = 4.95112516950656, lambda = -0.172070796448845
+Half-life estimated as 4.02826740426003 days
+Modern table value is 3.63 days

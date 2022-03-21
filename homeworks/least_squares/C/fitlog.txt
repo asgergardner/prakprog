@@ -1,0 +1,3 @@
+
+
+Uncertainty on lambda: 0.004029186777016 days
