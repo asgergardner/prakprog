@@ -1,3 +1,16 @@
+all:out.txt
+	make rconvergence.png nconvergence.png radialwf.png
+
+rconvergence.png:r_convergence.txt plot_rconvergence.gpi
+	pyxplot plot_rconvergence.gpi
+
+nconvergence.png:n_convergence.txt plot_nconvergence.gpi
+	pyxplot plot_nconvergence.gpi
+
+r_convergence.txt:out.txt
+
+n_convergence.txt:out.txt
+
 radialwf.png:out.txt plot_radialwf.gpi
 	pyxplot plot_radialwf.gpi
 
