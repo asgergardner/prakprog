@@ -1,5 +1,5 @@
 all:out.txt
-	make rconvergence.png nconvergence.png radialwf.png
+	make rconvergence.png nconvergence.png 
 
 rconvergence.png:r_convergence.txt plot_rconvergence.gpi
 	pyxplot plot_rconvergence.gpi

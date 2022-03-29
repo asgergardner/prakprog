@@ -1,9 +1,13 @@
 set terminal png
 set output "r_convergence.png"
 set grid
-set title "Convergence of ground state wrt. rmax"
+set title "Convergence of first 3 states wrt. rmax (npoints=100)"
 set xlabel "rmax"
 set ylabel "Energy [Hartree]"
 plot\
-	[0:10][-1:1] "r_convergence.txt" index 0 using 1:2 with points pointtype 31 title "calculated energy",\
-	"r_convergence.txt" index 0 using 1:3 with lines linetype 5 title "tabulated energy"
+	[0:20][-1:2] "r_convergence.txt" index 0 using 1:2 with points pointtype 31 title "calculated $E_0$",\
+	"r_convergence.txt" index 0 using 1:3 with lines linetype 5 title "tabulated $E_0$",\
+	"r_convergence.txt" index 1 using 1:2 with points pointtype 31 title "calculated $E_1$",\
+        "r_convergence.txt" index 1 using 1:3 with lines linetype 5 title "tabulated $E_1$",\
+	"r_convergence.txt" index 2 using 1:2 with points pointtype 31 title "calculated $E_2$",\
+        "r_convergence.txt" index 2 using 1:3 with lines linetype 5 title "tabulated $E_2$"

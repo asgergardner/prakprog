@@ -4,32 +4,39 @@ using static System.Math;
 
 class main{
 	public static void Main(){
-		CompareSolutions();
 		CheckRConvergence();
 		CheckNConvergence();
 	}
 
 	public static void CheckRConvergence(){
 		int np = 100; 
-		int rmax = 10;
+		int rmax = 20;
+		double[] table_energies = new double[] {-0.5, -0.125, -0.055};
 		using(var outfile = new System.IO.StreamWriter("r_convergence.txt")){
-			for(double r=1; r<rmax; r+=0.2){ 
-				(matrix H, vector rs, double dr) = GenerateH(np, r);
-				(vector e, matrix V) = evd.JacobiDiag(H);
-                        	outfile.WriteLine($"{r} {e[0]} {-0.5}");
+			for(int energy=0; energy<=2; energy++){
+				for(double r=1; r<rmax; r+=0.2){ 
+					(matrix H, vector rs, double dr) = GenerateH(np, r);
+					(vector e, matrix V) = evd.JacobiDiag(H);
+                        		outfile.WriteLine($"{r} {e[energy]} {table_energies[energy]}");
+				}
+				outfile.WriteLine("\n");
 			}
 		}
 	}
 
 	public static void CheckNConvergence(){
-		int rmax = 5;
-		int nmax = 100;
+		int rmax = 10;
+		int nmax = 200;
+		double[] table_energies = new double[] {-0.5, -0.125, -0.055};
 		using(var outfile = new System.IO.StreamWriter("n_convergence.txt")){
-			for(int np=10; np<nmax; np+=5){
-				(matrix H, vector r, double dr) = GenerateH(np, rmax);
-                        	(vector e, matrix V) = evd.JacobiDiag(H);
-				outfile.WriteLine($"{np} {e[0]} {-0.5}");
-                        }
+			for(int energy=0; energy<=2; energy++){
+				for(int np=10; np<nmax; np+=5){
+					(matrix H, vector r, double dr) = GenerateH(np, rmax);
+                        		(vector e, matrix V) = evd.JacobiDiag(H);
+					outfile.WriteLine($"{np} {e[energy]} {table_energies[energy]}");
+                        	}
+				outfile.WriteLine("\n");
+			}
 		}
 	}
 
