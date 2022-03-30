@@ -1,7 +1,7 @@
 set terminal png
 set output "n_convergence.png"
 set grid
-set title "Convergence of first 3 states wrt. npoints (rmax=10)"
+set title "Convergence of first 3 states wrt. npoints"
 set xlabel "npoints"
 set ylabel "Energy [Hartree]"
 plot\
