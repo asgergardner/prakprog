@@ -1,0 +1,7 @@
+set terminal png
+set output "ode.png"
+set grid
+set xlabel "t"
+plot\
+	"out.txt" index 0 using 1:2 with lines title "$\theta (t)$",\
+	"out.txt" index 0 using 1:3 with lines title "$\omega (t)$"
