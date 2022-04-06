@@ -1,0 +1,6 @@
+set terminal png
+set output "ploterf.png"
+set grid
+plot\
+	[-3:3][-1:1.5]"ploterf.txt" index 0 using 1:2 with points title "Error function integral representation",\
+	"erftab.txt" index 0 using 1:2 with lines title "Tabulated error function"
