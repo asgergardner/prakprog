@@ -13,16 +13,13 @@ class main{
 			for(int i=0;i<n;i++) numbers[i] = double.Parse(words[i]);
 			list.push(numbers);
        			}
-
-		var intlist = new genlist<double[]>();
-		double[] ints = new double[] {1,2,3,4,5};
-		intlist.push(ints);
-
-		WriteLine($"Integer list before removal:");
-		intlist.print();
-		intlist.remove(2);
-		WriteLine($"Integer list after removal:");
-	       	intlist.print();
+			
+		for(int i=0;i<list.size;i++){
+			var numbers = list.data[i];
+			foreach(var number in numbers){
+				WriteLine($"{number}");
+			}
+        	}
 	}
 }
 		

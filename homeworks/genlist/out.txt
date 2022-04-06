@@ -1,3 +1,0 @@
-Integer list before removal:
-System.Double[]Integer list after removal:
-System.Double[]
