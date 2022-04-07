@@ -13,4 +13,4 @@ integrator.dll:integrator.cs
 
 .PHONY:
 clean:
-	rm -f *.exe *.dll *.png out.txt
+	rm -f *.exe *.dll *.png

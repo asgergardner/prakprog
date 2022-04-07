@@ -1,2 +1,9 @@
-2: 1.99999730808565 
--4: -3.9999234350396
+
+ 1/sqrt(x) iterations: 
+ initial: 8576 transformed: 108 
+ 
+ log(x)/sqrt(x) iterations: 
+ initial: 8660 transformed: 24 
+
+1/sqrt(x) python iterations:  231
+log(x)/sqrt(x) python iterations:  315
