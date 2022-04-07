@@ -4,4 +4,4 @@ x*e^-x^2 from -inf to inf: 0, error: 0, iterations 8
 
 python 1/x^2: 0.7853981633974484 error: 1.2888957602994802e-10 iterations: 15
 python x_e^-x^2: 0.0 error: 0.0 iterations: 30
-python 1/(1-x*x) 1.5707963267948966 error: 2.5777915205519274e-10 iterations: 45
+python 1/(1+x*x) 1.5707963268467782 error: 0.00019585615543584383 iterations: 15
