@@ -1,9 +1,11 @@
 
  1/sqrt(x) iterations: 
- initial: 8576 transformed: 108 
+ initial: 8576 
+ transformed: 108 
  
  log(x)/sqrt(x) iterations: 
- initial: 8660 transformed: 24 
+ initial: 8660 
+ transformed: 24 
 
-1/sqrt(x) python iterations:  231
-log(x)/sqrt(x) python iterations:  315
+ 1/sqrt(x) python iterations:  231
+ log(x)/sqrt(x) python iterations:  315

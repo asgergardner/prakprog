@@ -19,7 +19,7 @@ class main{
 		double initLog = integrate(initLogxSqrtxInv, 0, 1);
 		double initSqrtx = integrate(initInvSqrtx, 0, 1);
 
-		WriteLine($"\n 1/sqrt(x) iterations: \n initial: {k} transformed: {i} \n \n log(x)/sqrt(x) iterations: \n initial: {n} transformed: {j} \n");	
+		WriteLine($"\n 1/sqrt(x) iterations: \n initial: {k} \n transformed: {i} \n \n log(x)/sqrt(x) iterations: \n initial: {n} \n transformed: {j} \n");	
 	}
 	/*
 	public double InvSqrtx(double x, int counter){
