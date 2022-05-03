@@ -1,5 +1,4 @@
 all:out.txt conv.png
-	make conv.png
 
 conv.png:out.txt plot_conv.gpi
 	pyxplot plot_conv.gpi
