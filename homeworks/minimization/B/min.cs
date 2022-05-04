@@ -42,12 +42,13 @@ public class min{
 			vector y = gxs-gx;
 			vector u = s - B*y;
 			double uTy = u%y;
-			if(Abs(uTy)>acc){
+			if(Abs(uTy)>1e-6){
 				B.update(u,u,1/uTy);
 			}
 			x=xs;
 			gx=gxs;
 			fx=fxs;
+			if(Abs(gx.norm())<acc){break;}
 		}
 		return (x,steps);
 	}

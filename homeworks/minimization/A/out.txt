@@ -1,0 +1,4 @@
+
+Rosenbrock minimum at (0.999995969330619,0.999991910933017) found after 239 steps with accuracy 1E-05
+
+Himmelblau minimum at (2.99999994719869,1.999999844208) found after 27 steps with accuracy 1E-05

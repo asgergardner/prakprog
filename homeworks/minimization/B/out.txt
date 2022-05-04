@@ -1,0 +1,5 @@
+
+	**Fitting Higgs boson data**	
+
+Initial guess m=120, Gamma=3, A=6, accuracy is 0.001
+Output fit parameters: m=125.972188019653, Gamma=2.086340230007, A=9.8762605354097, solved in 286 steps
