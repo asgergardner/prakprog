@@ -1,5 +1,5 @@
 set terminal png
-set output "plot_fit.png"
+set output "plot_fit_B.png"
 set xlabel "Time [days]"
 set ylabel "Activity [arb. units]"
 set grid

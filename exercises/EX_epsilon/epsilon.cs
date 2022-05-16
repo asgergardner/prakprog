@@ -49,7 +49,7 @@ public static class epsilon{
 		}
 		sumB+=1;
 		WriteLine($"Sum A - 1 = {sumA-1} should be {n*tiny}");
-		WriteLine($"Sum A - 1 = {sumB-1} should be {n*tiny}");
+		WriteLine($"Sum B - 1 = {sumB-1} should be {n*tiny}");
 	}
 
 	public static bool approx(double a, double b, double tau=1e-9, double epsilon=1e-9){

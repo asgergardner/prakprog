@@ -23,7 +23,7 @@ In this short report, the Taylor-series representation \eqref{eq:taylor_ex} of t
 	e^x-1=x+\frac {x^2}2 + \frac{x^3}6+\cdots +\frac{x^n}{n!}+\cdots.	
 \end{equation}
 
-Note that in the implementation of this series, only basic arithmetic operations are used when possible in order to circumvent System operations such as Pow(). The Taylor series of any function is an infinite series formulation of the function itself. However, computing an infinite series would require an infinite amount of computations, and would thus run forever on a computer. In order to prevent this unfortunate circumstance, the approximation is only ran until the 10th term in this case.
+Note that in the implementation of this series, only basic arithmetic operations are used when possible in order to circumvent System operations such as Pow(). The Taylor series of any function is an infinite series formulation of the function itself. However, computing an infinite series would require an infinite amount of computations, and would thus run forever on a computer. In order to prevent this unfortunate circumstance, the approximation is only ran until the 10th term in this case. If a negative argument is passed to the function, eg. -x, it is run as $(e^{-x})^{-1}$. If the input argument is of greater precision than 1/8, the function is called recursively as $(e^{\frac{x}{2}})^2$ to maintain the desired precision.
 
 \section*{iii)}
 

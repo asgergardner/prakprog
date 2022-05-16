@@ -1,0 +1,8 @@
+Results:
+ sqrt(2) = 1.4142135623731 
+ exp(pi) = 23.1406926327793 
+ pi^exp = 22.459157718361
+Inverse operations:
+ sqrt(2)*sqrt(2) = 2 
+ log(exp(pi)) = 3.14159265358979 
+ (pi^e)^1/e = 3.14159265358979

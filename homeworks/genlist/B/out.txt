@@ -1,0 +1,25 @@
+Initial list of numbers:
+5
+10
+15
+20
+25
+30
+35
+40
+45
+50
+
+size: 10
+**removing entries**
+size: 9 
+
+5
+10
+15
+20
+25
+30
+35
+40
+45

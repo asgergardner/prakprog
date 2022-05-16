@@ -1,0 +1,10 @@
+max int = 2147483647
+int.MaxValue = 2147483647
+min int = -2147483648
+int.MinValue = -2147483648
+Machine epsilon double : 2.22044604925031E-16. Should approximate 2.22044604925031E-16
+Machine epsilon float : 1.192093E-07. Should approximate 1.19209289550781E-07
+Sum A - 1 = 0 should be 1.11022302462516E-10
+Sum B - 1 = 1.11022302462516E-10 should be 1.11022302462516E-10
+1 + 5*epsilon is approximately equal to 1: False
+1 + epsilon/2 is approximately equal to 1: True

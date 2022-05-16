@@ -1,10 +1,11 @@
-default: out.txt
+all:out.txt
+	cat out.txt
 
-out.txt : week3.exe
-	mono week3.exe > out.txt
+out.txt : math.exe
+	mono math.exe > out.txt
 
-week3.exe : week3.cs
-	mcs week3.cs
+math.exe : math.cs
+	mcs math.cs
 
 .PHONY: clean
 clean:

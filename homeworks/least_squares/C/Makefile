@@ -1,9 +1,8 @@
-all:plot_fit.png fitlog.txt
-	make plot_fit.png
-	cat fitlog.txt
+all:plot_fit_C.png
+	make plot_fit_C.png
 
-plot_fit.png:out.txt plot_fit.gpi
-	pyxplot plot_fit.gpi
+plot_fit_C.png:out.txt plot_fit_C.gpi
+	pyxplot plot_fit_C.gpi
 
 out.txt:main.exe
 	mono $< > $@
