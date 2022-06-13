@@ -1,0 +1,6 @@
+set terminal png
+set output "HGS.png"
+set grid
+plot\
+ 	"hydrogenGS.txt" index 0 using 1:2 with lines title "Numerical solution",\
+	"hydrogenGS.txt" index 0 using 1:3 with lines linetype 2 title "Analytical solution"
