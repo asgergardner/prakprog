@@ -6,21 +6,21 @@ Exam project: 22
 
 Initial randomly generated symmetric matrix A:
 
-         9          0          3          9          2 
-         0          0          3          9          2 
-         3          3          3          9          2 
-         9          9          9          9          2 
-         2          2          2          2          2 
+         7          4          0          0          8 
+         4          4          0          0          8 
+         0          0          0          0          8 
+         0          0          0          0          8 
+         8          8          8          8          8 
 
 Initial eigenvalue guess:
  1
 
 Found eigenvalue:
- 1.48523954769794
+ 23.0617820688532
 
 Corresponding (normalized) eigenvector:
-    0.0025    -0.0127    -0.0332     -0.208      0.977 
+     0.455      0.396      0.248      0.248      0.716 
 
 HYDROGEN GROUND STATE:
-Found ground state energy: -0.498756211209044
+Found ground state energy: -0.499687890015713
 Plot of corresponding eigenvector in HGS.png

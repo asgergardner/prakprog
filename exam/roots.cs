@@ -4,7 +4,7 @@ using static lineq;
 using System;
 
 public class roots{
-	public static vector nroots(Func<vector,vector> f, vector x0, matrix A, double eps=1e-6){
+	public static vector nroots(Func<vector,vector> f, vector x0, matrix A, double eps=1e-12){
 		vector x = x0.copy();
 		int n = x.size;
 		vector fx = new vector(x0);

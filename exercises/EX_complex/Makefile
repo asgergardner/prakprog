@@ -1,10 +1,15 @@
-CMATHDIR = /mnt/c/Users/asger/prakprog/complex
-
 out.txt : main.exe
-	mono main.exe
+	mono $<
 
-main.exe : main.cs cmath.dll
-	mcs -target:exe -reference:cmath.dll main.cs
+main.exe : main.cs cmath.dll complex.dll
+	mcs -target:exe -reference:cmath.dll,complex.dll $<
 
-cmath.dll : $(CMATHDIR)/cmath.cs $(CMATHDIR)/complex.cs
-	mcs -target:library -out:./cmath.dll $^ # note "./" in front of cmath.dll
+cmath.dll : cmath.cs complex.dll
+	mcs -target:library -reference:complex.dll $<
+
+complex.dll : complex.cs
+	mcs -target:library $<
+
+.PHONY:
+clean:
+	rm -f *.txt *.dll

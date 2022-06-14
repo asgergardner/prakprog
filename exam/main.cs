@@ -42,7 +42,7 @@ public class main{
 	}
 
 	public static (double, double, vector, vector) HydrogenGS(){
-		double rmax=20,dr=0.1;
+		double rmax=25,dr=0.05;
 		int npoints = (int)(rmax/dr)-1;
 		vector r = new vector(npoints);
 		for(int i=0;i<npoints;i++)r[i]=dr*(i+1);

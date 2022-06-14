@@ -1,4 +1,3 @@
-CMATHDIR = /mnt/c/Users/asger/prakprog/complex
 
 cgamma.pyxplot.png: cgamma.data.txt Makefile
 	echo "\
@@ -16,14 +15,17 @@ cgamma.pyxplot.png: cgamma.data.txt Makefile
 cgamma.data.txt:main.exe
 	mono $< > $@
 	
-main.exe:main.cs functions.dll cmath.dll
-	mcs -target:exe -reference:functions.dll -reference:cmath.dll $<
+main.exe:main.cs functions.dll cmath.dll complex.dll
+	mcs -target:exe -reference:functions.dll,cmath.dll,complex.dll $<
 
-functions.dll:functions.cs cmath.dll
-	mcs -target:library -reference:cmath.dll $<
+functions.dll:functions.cs cmath.dll complex.dll
+	mcs -target:library -reference:cmath.dll,complex.dll $<
 
-cmath.dll: $(CMATHDIR)/cmath.cs $(CMATHDIR)/complex.cs
-	mcs -target:library -out:./cmath.dll $^ # note "./" in front of cmath.dll
+cmath.dll: cmath.cs complex.dll
+	mcs -target:library -reference:complex.dll $< 
+
+complex.dll:complex.cs
+	mcs -target:library $<
 
 .PHONY:
 clean:
